@@ -1,0 +1,8 @@
+{
+  "key.pulse-radar.toggle": "Toggle Player Radar",
+  "key.category.pulse-radar.controls": "Pulse Radar",
+  "screen.pulse-radar.layout": "Pulse Radar Layout",
+  "screen.pulse-radar.instructions": "Drag the radar to move it • Drag the square handle to resize",
+  "screen.pulse-radar.reset": "Reset Layout",
+  "screen.pulse-radar.done": "Done"
+}
