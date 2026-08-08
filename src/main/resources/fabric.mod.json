@@ -5,7 +5,10 @@
   "name": "Pulse Radar",
   "description": "A lightweight client-side military-style player radar HUD.",
   "authors": ["PulseRadar contributors"],
-  "contact": {},
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/pulseradar",
+    "issues": "https://github.com/haittorrs/PulseRadar/issues"
+  },
   "license": "MIT",
   "icon": "assets/pulse-radar/icon.png",
   "environment": "client",
