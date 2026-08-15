@@ -1,8 +1,9 @@
 package com.pulseradar.client.config;
 
 public final class RadarConfig {
+    public int configVersion = 2;
     public boolean enabled = true;
-    public double range = 100.0;
+    public double range = 1000.0;
     public int diameter = 150;
     public int margin = 10;
     public double positionX = 1.0;

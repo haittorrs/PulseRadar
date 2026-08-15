@@ -2,6 +2,8 @@ package com.pulseradar.client.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.IOException;
@@ -18,12 +20,19 @@ public final class RadarConfigManager {
     public RadarConfig load() {
         if (Files.isRegularFile(path)) {
             try (Reader reader = Files.newBufferedReader(path)) {
-                config = GSON.fromJson(reader, RadarConfig.class);
+                JsonObject json = JsonParser.parseReader(reader).getAsJsonObject();
+                boolean legacyConfig = !json.has("configVersion");
+                config = GSON.fromJson(json, RadarConfig.class);
+                if (legacyConfig) {
+                    config.range = 1000.0;
+                    config.configVersion = 2;
+                }
             } catch (IOException | RuntimeException ignored) {
                 config = null;
             }
         }
         if (config == null) config = new RadarConfig();
+        config.configVersion = 2;
         config.validate();
         save();
         return config;
